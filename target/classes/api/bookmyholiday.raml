@@ -1,0 +1,49 @@
+#%RAML 1.0
+title: BookMyHolidayAPI
+
+/flights:
+  get:
+    queryParameters:
+      source:
+        type: string
+        required: false
+        enum:
+          - DEL
+          - MUM
+          - CAL
+          - CHN
+      destination:
+        type: string
+        required: false
+        enum:
+          - DEL
+          - MUM
+          - CAL
+          - CHN
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {message: "flight found"}
+/hotels:
+  get:
+    queryParameters:
+      checkInDate:
+        type: datetime
+        required: true
+      checkOutDate:
+        type: datetime
+        required: true
+      peopleCount:
+        type: integer
+        required: true
+      roomCount:
+        type: integer
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {message: "hotel found"}
